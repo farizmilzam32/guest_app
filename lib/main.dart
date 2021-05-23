@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guest_app/screen/first_screen.dart';
 import 'package:guest_app/screen/fourth_screen.dart';
-import 'package:guest_app/screen/second_screen.dart';
 import 'package:guest_app/screen/third_screen.dart';
 
 void main() {

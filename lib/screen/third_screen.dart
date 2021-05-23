@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:guest_app/screen/gmaps.dart';
 
 class ThirdScreen extends StatefulWidget {
   static const String id = 'third_screen';
@@ -15,6 +16,15 @@ class _ThirdScreenState extends State<ThirdScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Event'),
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MyGmaps()));
+
+          }, icon: Icon(
+            Icons.map,
+            color: Colors.white,
+          ))
+        ],
         backgroundColor: Colors.orange,
       ),
       body: ListView.builder(itemCount: 15,

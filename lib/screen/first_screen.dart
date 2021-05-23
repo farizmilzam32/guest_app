@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'third_screen.dart';
 import 'fourth_screen.dart';
-import 'package:guest_app/screen/second_screen.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 
 class FirstScreen extends StatefulWidget {
 
@@ -23,6 +24,12 @@ class _FirstScreenState extends State<FirstScreen> {
             ))
     );
   }
+
+  isPalindrome (possiblePalindrome) {
+    name.text = possiblePalindrome.split("").reversed.join("");
+    return (possiblePalindrome == name.text) ? true.toString() : false.toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +56,7 @@ class _FirstScreenState extends State<FirstScreen> {
             ),
             Container(
               padding: EdgeInsets.all(10),
-              height: 300,
+              height: 320,
               decoration: BoxDecoration(
                   color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(10),
@@ -61,7 +68,7 @@ class _FirstScreenState extends State<FirstScreen> {
                     CircleAvatar(
                     radius: 50.0,
                     backgroundColor: Colors.white,
-                    backgroundImage: AssetImage('images/icon-avatar.png'),
+                    backgroundImage: AssetImage('images/img_avatar.png'),
                       ),
                       SizedBox(
                         height: 20,
@@ -86,7 +93,11 @@ class _FirstScreenState extends State<FirstScreen> {
                           getItemAndNavigate(context);
                         },
                         child: Text('Next'),
-                      )
+                      ),
+                      ElevatedButton(onPressed: (){
+                        Fluttertoast.showToast(msg: isPalindrome(name.text));
+                      }, child: Text('isPalindrome'),
+                      ),
                     ],
                   ),
                 ),
